@@ -6,3 +6,7 @@
 using namespace std;
 
 //your code begins here add comment lines befor each section and explain any complex logic if u r using
+class employee_data {
+    private:
+
+ }
