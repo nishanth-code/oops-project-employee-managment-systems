@@ -36,6 +36,15 @@ class data_base: public read_display//database class inherithing read
          char qualification[10];
          float salary;
          float attendance;
+    public:
+    void read()
+    {
+        //function body
+    }
+    void display()
+    {
+        //function body
+    }
 
 };
 
