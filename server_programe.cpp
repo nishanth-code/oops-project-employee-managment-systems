@@ -98,6 +98,7 @@ class attendance:public data_base
                             cout<<i<<"/"<<m<<"/"<<y<<" = "<<att<<endl;
                         }
                     }
+                    cout<<"\n";
                 }
             }
             void mark_attendance()
