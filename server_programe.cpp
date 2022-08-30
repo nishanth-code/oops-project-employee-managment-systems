@@ -55,7 +55,8 @@ class data_base: public read_display//database class inherithing read
     }
     void display()
     {
-        //function body
+       
+         
     }
 
 };
@@ -93,7 +94,7 @@ class attendance:public data_base
                         for(int i=1;i<=days(m,y))
                         {
                             if(attendance_matrix[y][m][i]==0)
-                            char="a";
+                            att="a";
                             cout<<i<<"/"<<m<<"/"<<y<<" = "att<<endl;
                         }
                     }
@@ -101,7 +102,9 @@ class attendance:public data_base
             }
             void mark_attendance()
             {
-                //function body
+               int year,month,day,day_of_week;
+               time_t = time(0);
+               tm *cur
             }
 };
 
