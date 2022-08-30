@@ -85,7 +85,7 @@ class attendance:public data_base
                 percentage=(total_attendance/days(m,y))*100;
                 return percentage;          
             }
-            void diaplay_attendance()
+            
             void diaplay_attendance(int m,int y)
             {  
                 char att="a";
@@ -111,7 +111,18 @@ class attendance:public data_base
             {
                int year,month,day,day_of_week;
                time_t now= time(0);
-               tm *cur = localtime(&)          
+               tm *cur = localtime(&now);
+               year=1900+cur->tm_year;
+               month=1+cur->tm_mon;
+               day=cur->tm_mday;
+               day_of_week=cur->tm_wday;
+               if(day_of_week == 0)
+               {
+                attendance_matrix[year][month][day]= 0;
+                return ;
+               }
+               attendance_matrix[year][month][day]=1;
+
             }
 };
 
