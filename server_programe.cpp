@@ -59,4 +59,49 @@ class data_base: public read_display//database class inherithing read
     }
 
 };
+class attendance:public data_base
+{  
+    int attendance_matrix[10000][13][32];
+    public: int days(int m,int y)
+            {
+                if(m==2 && y%4==0)
+                return (29);
+                if(m==2 && y%4!=0)
+                return(28);
+                if(m==1 || m==3 || m==5 || m==7|| m==8 || m==10 || m==12)
+                return(31);
+                return(30);
+            }
+            float compute(int m, int y)
+            {   
+                float percentage
+                int total_attendance=0;
+                for(int i=1;i<=days(m,y);i++)
+                {   
+                    total_attendance+=attendance_matrix[y][m][i];
+                }
+                    percentage=(total_attendance/days(m,y))*100;
+                return percentage;          
+            }
+            void diaplay_attendance()
+            {  
+                char att="p";
+                for(int y=2022;y<10000;y++)
+                {
+                    for(int m=1;m<13;m++)
+                    {
+                        for(int i=1;i<=days(m,y))
+                        {
+                            if(attendance_matrix[y][m][i]==0)
+                            char="a";
+                            cout<<i<<"/"<<m<<"/"<<y<<" = "att<<endl;
+                        }
+                    }
+                }
+            }
+            void mark_attendance()
+            {
+                //function body
+            }
+};
 
