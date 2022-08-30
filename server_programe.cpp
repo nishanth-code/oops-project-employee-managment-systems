@@ -75,22 +75,30 @@ class attendance:public data_base
             }
             float compute(int m, int y)
             {   
-                float percentage
+                float percentage;
                 int total_attendance=0;
                 for(int i=1;i<=days(m,y);i++)
                 {   
                     total_attendance+=attendance_matrix[y][m][i];
                 }
-                    percentage=(total_attendance/days(m,y))*100;
+                percentage=(total_attendance/days(m,y))*100;
                 return percentage;          
             }
-            void diaplay_attendance()
+            void diaplay_attendance(int m,int y)
             {  
-                char att="p";
-                for(int y=2022;y<10000;y++)
-                {
-                    for(int m=1;m<13;m++)
+                char att="a";
+                int d=1;
+                cout<<"\t"<<m<<"-"<<y<<endl;
+                cout<<"Sun\tMon\tTue\tWed\tThur\tFri\tSat\n";
+                for(int i=1;i<=days(m,y);i+=7)
+                {   cout<<"-\t";
+                    d++;
+                    for(int j=1;j<7 && d<=days(m,y);j++)
                     {
+                        if(attendance_matrix[y][m][d]==1)
+                        att="p";
+                        cout<<att<<"\t";
+                        d++;
                         for(int i=1;i<=days(m,y))
                         {
                             if(attendance_matrix[y][m][i]==0)
@@ -98,6 +106,7 @@ class attendance:public data_base
                             cout<<i<<"/"<<m<<"/"<<y<<" = "att<<endl;
                         }
                     }
+                    cout<<"\n";
                 }
             }
             void mark_attendance()
