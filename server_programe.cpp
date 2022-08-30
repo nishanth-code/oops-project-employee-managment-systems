@@ -34,6 +34,7 @@ class data_base: public read_display//database class inherithing read
          struct date_ d_o_b;
          struct date_ d_o_j;
          char qualification[10];
+    protected:
          float salary;
          float attendance;
     public:
