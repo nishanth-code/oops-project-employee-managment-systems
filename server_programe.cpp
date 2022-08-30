@@ -4,6 +4,7 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<math.h>
+#include<ctime>
 using namespace std;
 struct date_
 {
@@ -18,7 +19,7 @@ struct date_
 
 class read_display//genral class for reading and displaying info may be we can replace it with operator overloading also
 {
-    protected:
+    public:
     virtual void read() =0;
     virtual void display() =0;
     
@@ -40,7 +41,17 @@ class data_base: public read_display//database class inherithing read
     public:
     void read()
     {
-        //function body
+       cout<<"\nenter the name of the employee : ";
+       cin>>name;
+       cout<<"\nenter the date of birth of the employee in the formate(dd/mm/yyyy) : ";
+       cin>>d_o_b.day>>d_o_b.month>>d_o_b.year;
+       cout<<"\nenter the date of joining of the employee in the formate(dd/mm/yyyy) : ";
+       cin>>d_o_j.day>>d_o_j.month>>d_o_j.year;
+       cout<<"\nenter the qualification of the employee : ";
+       cin>>qualification;
+       cout<<"\nenter the posting of the employee : ";
+       cin>>posting;
+
     }
     void display()
     {
