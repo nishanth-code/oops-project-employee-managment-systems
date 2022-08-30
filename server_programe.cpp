@@ -75,7 +75,7 @@ class attendance:public data_base
             }
             float compute(int m, int y)
             {   
-                float percentage
+                float percentage;
                 int total_attendance=0;
                 for(int i=1;i<=days(m,y);i++)
                 {   
@@ -91,11 +91,11 @@ class attendance:public data_base
                 {
                     for(int m=1;m<13;m++)
                     {
-                        for(int i=1;i<=days(m,y))
+                        for(int i=1;i<=days(m,y);i++)
                         {
                             if(attendance_matrix[y][m][i]==0)
                             att="a";
-                            cout<<i<<"/"<<m<<"/"<<y<<" = "att<<endl;
+                            cout<<i<<"/"<<m<<"/"<<y<<" = "<<att<<endl;
                         }
                     }
                 }
@@ -103,8 +103,8 @@ class attendance:public data_base
             void mark_attendance()
             {
                int year,month,day,day_of_week;
-               time_t = time(0);
-               tm *cur
+               time_t now= time(0);
+               tm *cur = localtime(&)          
             }
 };
 
