@@ -133,7 +133,7 @@ class attendance:public data_base,public read_display
 };
 class log_details: public attendance
 {
-    
+
    
 };
 
@@ -141,7 +141,7 @@ class salary
 {
     int emp_id;
     float basic,da,hra,lta,pf,esi,gross_sal,tax,salary;
-    publi:void read_emp_details(int count)
+    public:void read_emp_details(int count)
     {
         cout<<"Employee id:\n" ;
         cin>>emp_id;
@@ -172,4 +172,4 @@ class salary
             tax=122400;
         salary=gross_sal-(pf+esi+tax);
     }
-}
+};
