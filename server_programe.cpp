@@ -69,7 +69,7 @@ class data_base: public read_display//database class inherithing read
 
 };
 int data_base:: employee_id=132456;
-class attendance:public virtual data_base,public read_display
+class attendance:public virtual data_base
 {  
     protected:
         int attendance_matrix[10000][13][32];
@@ -137,7 +137,7 @@ class attendance:public virtual data_base,public read_display
                attendance_matrix[year][month][day]=1;
                outfile.open("check_in.txt");
                outfile<<employee_id<<" checked in at :"<<log<<endl;
-               outfile.close;
+               outfile.close();
                cout<<"\nentered log details sucessfully";
 
                
@@ -150,7 +150,7 @@ class attendance:public virtual data_base,public read_display
                char* log = ctime(&now);
                outfile.open("check_out.txt");
                outfile<<employee_id<<" checked out at :"<<log<<endl;
-               outfile.close;
+               outfile.close();
                cout<<"\nentered log details sucessfully";
                
              }
@@ -271,71 +271,71 @@ int main()
         case 2:
              cout<<"\nenter employee id : ";
              cin>>id;
-             for(j=0;j<i:j++)
+             for(j=0;j<i;j++)
              {
                 if(employees[j].employee_id==id)
                 {
                     employees[j].display_employee_details();
-                    goto label1
+                    goto label1;
                 }
              }
-             cout<<"\ninvalid employee id"
+             cout<<"\ninvalid employee id";
              break;
         case 3:
              cout<<"\nenter employee id : ";
              cin>>id;
-             for(j=0;j<i:j++)
+             for(j=0;j<i;j++)
              {
                 if(employees[j].employee_id==id)
                 {
                     employees[j].mark_attendance();
-                    goto label1
+                    goto label1;
                 }
              }
-             cout<<"\ninvalid employee id"
+             cout<<"\ninvalid employee id";
              break;
         case 4:
              cout<<"\nenter employee id : ";
              cin>>id;
-             for(j=0;j<i:j++)
+             for(j=0;j<i;j++)
              {
                 if(employees[j].employee_id==id)
                 {
                     employees[j].display_sal();
-                    goto label1
+                    goto label1;
                 }
              }
-             cout<<"\ninvalid employee id"
+             cout<<"\ninvalid employee id";
              break;
         case 5:
              cout<<"\nenter employee id : ";
              cin>>id;
-             for(j=0;j<i:j++)
+             for(j=0;j<i;j++)
              {
                 if(employees[j].employee_id==id)
                 {
                     employees[j].display_attendance();
-                    goto label1
+                    goto label1;
                 }
              }
-             cout<<"\ninvalid employee id"
+             cout<<"\ninvalid employee id";
              break;
         case 6:
              cout<<"\nenter employee id : ";
              cin>>id;
-             for(j=0;j<i:j++)
+             for(j=0;j<i;j++)
              {
                 if(employees[j].employee_id==id)
                 {
                     employees[j].checkout();
-                    goto label1
+                    goto label1;
                 }
              }
-             cout<<"\ninvalid employee id"
+             cout<<"\ninvalid employee id";
              break;
 
         default:
-            goto label1
+            goto label1;
          
 
 
