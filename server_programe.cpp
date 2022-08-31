@@ -134,14 +134,23 @@ class attendance:public data_base,public read_display
 class log_details: public attendance
 {
 
+<<<<<<< HEAD
+class salary:public attendance
+=======
    
 };
 
 class salary
+>>>>>>> 0f0a61ff10e8150ff4ecf94e0ea1a53073b7a97b
 {
     int emp_id;
+<<<<<<< HEAD
+    float basic,da,hra,lta,pf,esi,gross_sal,tax,salary,atd,newsalary;
+    publi:void read_emp_details(int count)
+=======
     float basic,da,hra,lta,pf,esi,gross_sal,tax,salary;
     public:void read_emp_details(int count)
+>>>>>>> 0f0a61ff10e8150ff4ecf94e0ea1a53073b7a97b
     {
         cout<<"Employee id:\n" ;
         cin>>emp_id;
@@ -171,5 +180,27 @@ class salary
         else 
             tax=122400;
         salary=gross_sal-(pf+esi+tax);
+        atd=compute();
+        if(atd<=100 && atd>=95)
+            newsalary=salary;
+        else if(atd<95 && atd>=85)
+            newsalary=salary-(0.1*salary);
+        else if(atd<85 && atd>=75)
+            newsalary=salary-(0.2*salary);
+        else
+            newsalary=salary-(0.3*salary);        
     }
-};
+<<<<<<< HEAD
+    void display
+    {
+        cout<<"The Basic saalry is: "<<basic;
+        cout<<"PF is: "<<pf;
+        cout<<"Home Rent Allowance is: "<<hra;
+        cout<<"Gross Salary: "<<gross_sal;
+        cout<<"Tax on your salary: "<<tax;
+        cout<<"Take home salary : "<<newsalary;
+    }
+}:
+=======
+
+>>>>>>> 0f0a61ff10e8150ff4ecf94e0ea1a53073b7a97b
