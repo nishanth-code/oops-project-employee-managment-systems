@@ -130,3 +130,39 @@ class attendance:public data_base
             }
 };
 
+class salary
+{
+    int emp_id;
+    float basic,da,hra,lta,pf,esi,gross_sal,tax,salary;
+    publi:void read_emp_details(int count)
+    {
+        cout<<"Employee id:\n" ;
+        cin>>emp_id;
+        cout<<"Enter basic salary:\n" ;
+        cin>>basic;
+    }
+    float find_net_salary()
+    {
+        da=(0.5*basic);
+        hra=(0.4*basic)+da;
+        lta=(0.1*basic);
+        pf=(0.12*basic)+da;
+        esi=(0.0075*basic);
+        gross_sal=basic+da+hra+lta;
+        if(gross_sal<=250000)
+            tax=0;
+        else if(gross_sal>250000 && gross_sal<=500000)
+            tax=12500;
+        else if(gross_sal>500000 && gross_sal<=750000)
+            tax=25000;
+        else if(gross_sal>750000 && gross_sal<=1000000)
+            tax=37500;
+        else if(gross_sal>1000000 && gross_sal<=1250000)
+            tax=50000;
+        else if(gross_sal>1250000 && gross_sal<=1500000)
+            tax=62500;
+        else 
+            tax=122400;
+        salary=gross_sal-(pf+esi+tax);
+    }
+}
