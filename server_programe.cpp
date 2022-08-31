@@ -148,7 +148,7 @@ class salary:public attendance, virtual data_base
         cout<<"Enter basic salary:\n" ;
         cin>>basic;
     }
-    float find_net_salary()
+    void find_net_salary()
     {
         da=(0.5*basic);
         hra=(0.4*basic)+da;
@@ -171,16 +171,16 @@ class salary:public attendance, virtual data_base
         else 
             tax=122400;
         salary=gross_sal-(pf+esi+tax);
-        atd=compute(m,y);
-        if(atd<=100 && atd>=95)
-            newsalary=salary;
-        else if(atd<95 && atd>=85)
-            newsalary=salary-(0.1*salary);
-        else if(atd<85 && atd>=75)
-            newsalary=salary-(0.2*salary);
-        else
-            newsalary=salary-(0.3*salary);  
-        salary=newsalary;      
+        // atd=compute(m,y);
+        // if(atd<=100 && atd>=95)
+        //     newsalary=salary;
+        // else if(atd<95 && atd>=85)
+        //     newsalary=salary-(0.1*salary);
+        // else if(atd<85 && atd>=75)
+        //     newsalary=salary-(0.2*salary);
+        // else
+        //     newsalary=salary-(0.3*salary);  
+        // salary=newsalary;      
     }
 
     void display()
