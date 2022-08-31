@@ -72,7 +72,7 @@ int data_base:: employee_id=132456;
 class attendance:public virtual data_base
 {  
     protected:
-        int attendance_matrix[10000][13][32];
+        int attendance_matrix[150][13][32];
         ofstream outfile;
     public: int days(int m,int y)
             {
@@ -246,7 +246,7 @@ int main()
    int key=34567,choice,i=1,j,id;
    while(choice!=key)
    {
-    label1:
+    
     cout<<"================================================================================================================================================\n";
     cout<<"---------------------------------------------------employee managment system--------------------------------------------------------------------"<<endl;
     cout<<"================================================================================================================================================="<<endl;
@@ -276,7 +276,7 @@ int main()
                 if(employees[j].employee_id==id)
                 {
                     employees[j].display_employee_details();
-                    goto label1;
+                    break;
                 }
              }
              cout<<"\ninvalid employee id";
@@ -289,7 +289,7 @@ int main()
                 if(employees[j].employee_id==id)
                 {
                     employees[j].mark_attendance();
-                    goto label1;
+                    break;
                 }
              }
              cout<<"\ninvalid employee id";
@@ -302,7 +302,7 @@ int main()
                 if(employees[j].employee_id==id)
                 {
                     employees[j].display_sal();
-                    goto label1;
+                    break;
                 }
              }
              cout<<"\ninvalid employee id";
@@ -315,7 +315,7 @@ int main()
                 if(employees[j].employee_id==id)
                 {
                     employees[j].display_attendance();
-                    goto label1;
+                    break;
                 }
              }
              cout<<"\ninvalid employee id";
@@ -328,14 +328,14 @@ int main()
                 if(employees[j].employee_id==id)
                 {
                     employees[j].checkout();
-                    goto label1;
+                    break;
                 }
              }
              cout<<"\ninvalid employee id";
              break;
 
         default:
-            goto label1;
+              break;
          
 
 
