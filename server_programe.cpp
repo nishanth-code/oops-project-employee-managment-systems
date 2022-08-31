@@ -86,7 +86,7 @@ class attendance:public data_base
                 return percentage;          
             }
             
-            void diaplay_attendance(int m,int y)
+            void display(int m,int y)
             {  
                 char att="a";
                 int d=1;
