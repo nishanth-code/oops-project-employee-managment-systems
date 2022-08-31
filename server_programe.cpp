@@ -55,7 +55,11 @@ class data_base: public read_display//database class inherithing read
     }
     void display()
     {
-       
+      cout<<"name:"<<name<<endl;
+      cout<<"date of birth:"<<d_o_b.day<<d_o_b.month<<d_o_b.year<<endl;
+      cout<<"date of joining:"<<d_o_j.day<<d_o_b.month<<d_o_j.year<<endl;
+      cout<<"qualification:"<<qualification<<endl;
+      cout<<"posting:"<<posting; 
          
     }
 
