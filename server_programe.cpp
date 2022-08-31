@@ -5,6 +5,7 @@
 #include<stdlib.h>
 #include<math.h>
 #include<ctime>
+#include<fstream>
 using namespace std;
 struct date_
 {
@@ -72,6 +73,7 @@ class attendance:public virtual data_base,public read_display
 {  
     protected:
         int attendance_matrix[10000][13][32];
+        ofstream outfile;
     public: int days(int m,int y)
             {
                 if(m==2 && y%4==0)
@@ -122,6 +124,7 @@ class attendance:public virtual data_base,public read_display
                int year,month,day,day_of_week;
                time_t now= time(0);
                tm *cur = localtime(&now);
+               char* log = ctime(&now);
                year=1900+cur->tm_year;
                month=1+cur->tm_mon;
                day=cur->tm_mday;
@@ -132,10 +135,25 @@ class attendance:public virtual data_base,public read_display
                 return ;
                }
                attendance_matrix[year][month][day]=1;
+               outfile.open("check_in.txt");
+               outfile<<employee_id<<" checked in at :"<<log<<endl;
+               outfile.close;
+               cout<<"\nentered log details sucessfully";
+
                
 
 
             }
+            void checkout()
+            {
+               time_t now= time(0);
+               char* log = ctime(&now);
+               outfile.open("check_out.txt");
+               outfile<<employee_id<<" checked out at :"<<log<<endl;
+               outfile.close;
+               cout<<"\nentered log details sucessfully";
+               
+             }
 };
 
 
@@ -187,7 +205,7 @@ class salary:public attendance, virtual data_base
         // salary=newsalary;      
     }
 
-    void display()
+    void display_sal()
     {
         cout<<"The Basic saalry is : "<<basic;
         cout<<"PF is : "<<pf;
@@ -238,6 +256,7 @@ int main()
     cout<<"3.mark your attendance"<<endl;
     cout<<"4.know your detailed salary"<<endl;
     cout<<"5.know your attendance"<<endl;
+    cout<<"6.checkout"<<endl;
     while(choice<1 || choice>5)
     {
     cout<<"\nenter your choice : ";
@@ -273,6 +292,51 @@ int main()
                     goto label1
                 }
              }
+             cout<<"\ninvalid employee id"
+             break;
+        case 4:
+             cout<<"\nenter employee id : ";
+             cin>>id;
+             for(j=0;j<i:j++)
+             {
+                if(employees[j].employee_id==id)
+                {
+                    employees[j].display_sal();
+                    goto label1
+                }
+             }
+             cout<<"\ninvalid employee id"
+             break;
+        case 5:
+             cout<<"\nenter employee id : ";
+             cin>>id;
+             for(j=0;j<i:j++)
+             {
+                if(employees[j].employee_id==id)
+                {
+                    employees[j].display_attendance();
+                    goto label1
+                }
+             }
+             cout<<"\ninvalid employee id"
+             break;
+        case 6:
+             cout<<"\nenter employee id : ";
+             cin>>id;
+             for(j=0;j<i:j++)
+             {
+                if(employees[j].employee_id==id)
+                {
+                    employees[j].checkout();
+                    goto label1
+                }
+             }
+             cout<<"\ninvalid employee id"
+             break;
+
+        default:
+            goto label1
+         
 
 
              
@@ -280,5 +344,6 @@ int main()
 
 
    }
+   return 0;
 
 }
