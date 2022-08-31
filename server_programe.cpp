@@ -64,7 +64,7 @@ class data_base: public read_display//database class inherithing read
     }
 
 };
-class attendance:public data_base,public read_display
+class attendance:public virtual data_base,public read_display
 {  
     protected:
         int attendance_matrix[10000][13][32];
@@ -135,13 +135,13 @@ class attendance:public data_base,public read_display
 };
 
 
-class salary:public attendance,data_base
+class salary:public attendance, virtual data_base
 
 {
     
 
     float basic,da,hra,lta,pf,esi,gross_sal,tax,salary,atd,newsalary;
-    public:void read_emp_details(int count)
+    public:void read_emp_details()
     {
         cout<<"Employee id:\n" ;
         cin>>emp_id;
@@ -171,6 +171,9 @@ class salary:public attendance,data_base
         else 
             tax=122400;
         salary=gross_sal-(pf+esi+tax);
+    }
+    void salary_compute()
+    {
         atd=compute();
         if(atd<=100 && atd>=95)
             newsalary=salary;
@@ -179,7 +182,8 @@ class salary:public attendance,data_base
         else if(atd<85 && atd>=75)
             newsalary=salary-(0.2*salary);
         else
-            newsalary=salary-(0.3*salary);        
+            newsalary=salary-(0.3*salary);  
+        salary=newsalary;      
     }
 
     void display()
@@ -192,4 +196,22 @@ class salary:public attendance,data_base
         cout<<"Take home salary : "<<newsalary;
     }
 };
+class menu:public salary
+{
+  public:
+       void add_new_employee()
+       {
+         data_base::read();
+       }
 
+
+};
+
+int main()
+{
+  
+
+
+
+  return 0;
+}
