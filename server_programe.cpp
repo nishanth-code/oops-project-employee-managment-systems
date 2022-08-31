@@ -139,12 +139,12 @@ class salary:public attendance, virtual data_base
 
 {
     
-
+    
     float basic,da,hra,lta,pf,esi,gross_sal,tax,salary,atd,newsalary;
     public:void read_emp_details()
     {
-        cout<<"Employee id:\n" ;
-        cin>>emp_id;
+        // cout<<"Employee id:\n" ;
+        // cin>>emp_id;
         cout<<"Enter basic salary:\n" ;
         cin>>basic;
     }
@@ -170,7 +170,7 @@ class salary:public attendance, virtual data_base
             tax=62500;
         else 
             tax=122400;
-        salary=gross_sal-(pf+esi+tax);
+        // salary=gross_sal-(pf+esi+tax);
         // atd=compute(m,y);
         // if(atd<=100 && atd>=95)
         //     newsalary=salary;
@@ -194,3 +194,8 @@ class salary:public attendance, virtual data_base
     }
 };
 
+class menu
+{
+     public:
+           
+};
