@@ -171,10 +171,7 @@ class salary:public attendance, virtual data_base
         else 
             tax=122400;
         salary=gross_sal-(pf+esi+tax);
-    }
-    void salary_compute()
-    {
-        atd=compute();
+        atd=compute(m,y);
         if(atd<=100 && atd>=95)
             newsalary=salary;
         else if(atd<95 && atd>=85)
@@ -188,30 +185,12 @@ class salary:public attendance, virtual data_base
 
     void display()
     {
-        cout<<"The Basic saalry is: "<<basic;
-        cout<<"PF is: "<<pf;
-        cout<<"Home Rent Allowance is: "<<hra;
-        cout<<"Gross Salary: "<<gross_sal;
-        cout<<"Tax on your salary: "<<tax;
+        cout<<"The Basic saalry is : "<<basic;
+        cout<<"PF is : "<<pf;
+        cout<<"Home Rent Allowance is : "<<hra;
+        cout<<"Gross Salary : "<<gross_sal;
+        cout<<"Tax on your salary : "<<tax;
         cout<<"Take home salary : "<<newsalary;
     }
 };
-class menu:public salary
-{
-  public:
-       void add_new_employee()
-       {
-         data_base::read();
-       }
 
-
-};
-
-int main()
-{
-  
-
-
-
-  return 0;
-}
