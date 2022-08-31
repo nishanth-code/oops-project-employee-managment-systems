@@ -171,7 +171,7 @@ class salary:public attendance,data_base
         else 
             tax=122400;
         salary=gross_sal-(pf+esi+tax);
-        atd=compute();
+        atd=compute(m,y);
         if(atd<=100 && atd>=95)
             newsalary=salary;
         else if(atd<95 && atd>=85)
@@ -184,11 +184,11 @@ class salary:public attendance,data_base
 
     void display()
     {
-        cout<<"The Basic saalry is: "<<basic;
-        cout<<"PF is: "<<pf;
-        cout<<"Home Rent Allowance is: "<<hra;
-        cout<<"Gross Salary: "<<gross_sal;
-        cout<<"Tax on your salary: "<<tax;
+        cout<<"The Basic saalry is : "<<basic;
+        cout<<"PF is : "<<pf;
+        cout<<"Home Rent Allowance is : "<<hra;
+        cout<<"Gross Salary : "<<gross_sal;
+        cout<<"Tax on your salary : "<<tax;
         cout<<"Take home salary : "<<newsalary;
     }
 };
