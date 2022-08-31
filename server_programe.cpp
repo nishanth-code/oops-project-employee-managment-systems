@@ -29,7 +29,7 @@ class read_display//genral class for reading and displaying info may be we can r
 class data_base: public read_display//database class inherithing read
 {
      private:
-         static int employee_code;
+         static int employee_id;
          char name[20];
          char posting[5];
          struct date_ d_o_b;
@@ -38,6 +38,7 @@ class data_base: public read_display//database class inherithing read
     protected:
          float salary;
          float attendance;
+         
     public:
     void read()
     {
@@ -128,14 +129,12 @@ class attendance:public data_base,public read_display
                 return ;
                }
                attendance_matrix[year][month][day]=1;
+               
 
             }
 };
-class log_details: public attendance
-{
 
-   
-};
+
 
 class salary
 {
