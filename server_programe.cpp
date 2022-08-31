@@ -64,9 +64,10 @@ class data_base: public read_display//database class inherithing read
     }
 
 };
-class attendance:public data_base
+class attendance:public data_base,public read_display
 {  
-    int attendance_matrix[10000][13][32];
+    protected:
+        int attendance_matrix[10000][13][32];
     public: int days(int m,int y)
             {
                 if(m==2 && y%4==0)
@@ -85,14 +86,14 @@ class attendance:public data_base
                 {   
                     total_attendance+=attendance_matrix[y][m][i];
                 }
-                    percentage=(total_attendance/days(m,y))*100;
-                percentage=(total_attendance/days(m,y))*100;
+                    percentage=(total_attendance/(days(m,y)-4))*100;
+                
                 return percentage;          
             }
             
             void display(int m,int y)
             {  
-                char att="a";
+                char att;
                 int d=1;
                 cout<<"\t"<<m<<"-"<<y<<endl;
                 cout<<"Sun\tMon\tTue\tWed\tThur\tFri\tSat\n";
@@ -103,8 +104,9 @@ class attendance:public data_base
                     {
                         for(int i=1;i<=days(m,y);i++)
                         {
+                            att='a';
                             if(attendance_matrix[y][m][i]==0)
-                            att="a";
+                            att='p';
                             cout<<i<<"/"<<m<<"/"<<y<<" = "<<att<<endl;
                         }
                     }
@@ -128,5 +130,10 @@ class attendance:public data_base
                attendance_matrix[year][month][day]=1;
 
             }
+};
+class log_details: public attendance
+{
+    
+   
 };
 
