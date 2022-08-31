@@ -28,14 +28,13 @@ class read_display//genral class for reading and displaying info may be we can r
 
 class data_base: public read_display//database class inherithing read
 {
-     private:
+      protected:
          static int employee_id;
          char name[20];
          char posting[5];
          struct date_ d_o_b;
          struct date_ d_o_j;
          char qualification[10];
-    protected:
          float salary;
          float attendance;
          
@@ -131,15 +130,17 @@ class attendance:public data_base,public read_display
                attendance_matrix[year][month][day]=1;
                
 
+
             }
 };
 
 
+class salary:public attendance,data_base
 
-class salary
 {
-    int emp_id;
-    float basic,da,hra,lta,pf,esi,gross_sal,tax,salary;
+    
+
+    float basic,da,hra,lta,pf,esi,gross_sal,tax,salary,atd,newsalary;
     public:void read_emp_details(int count)
     {
         cout<<"Employee id:\n" ;
@@ -170,5 +171,25 @@ class salary
         else 
             tax=122400;
         salary=gross_sal-(pf+esi+tax);
+        atd=compute();
+        if(atd<=100 && atd>=95)
+            newsalary=salary;
+        else if(atd<95 && atd>=85)
+            newsalary=salary-(0.1*salary);
+        else if(atd<85 && atd>=75)
+            newsalary=salary-(0.2*salary);
+        else
+            newsalary=salary-(0.3*salary);        
+    }
+
+    void display()
+    {
+        cout<<"The Basic saalry is: "<<basic;
+        cout<<"PF is: "<<pf;
+        cout<<"Home Rent Allowance is: "<<hra;
+        cout<<"Gross Salary: "<<gross_sal;
+        cout<<"Tax on your salary: "<<tax;
+        cout<<"Take home salary : "<<newsalary;
     }
 };
+
