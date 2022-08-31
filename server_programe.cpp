@@ -20,7 +20,7 @@ struct date_
 class read_display//genral class for reading and displaying info may be we can replace it with operator overloading also
 {
     public:
-    virtual void read() =0;
+    // virtual void read() =0;
     virtual void display() =0;
     
 
@@ -29,7 +29,6 @@ class read_display//genral class for reading and displaying info may be we can r
 class data_base: public read_display//database class inherithing read
 {
       protected:
-         static int employee_id;
          char name[20];
          char posting[5];
          struct date_ d_o_b;
@@ -39,6 +38,8 @@ class data_base: public read_display//database class inherithing read
          float attendance;
          
     public:
+         static int employee_id;
+
     void read()
     {
        cout<<"\nenter the name of the employee : ";
@@ -51,6 +52,8 @@ class data_base: public read_display//database class inherithing read
        cin>>qualification;
        cout<<"\nenter the posting of the employee : ";
        cin>>posting;
+       employee_id+=1;
+       cout<<"\nyour employee id is : "<<employee_id;
 
     }
     void display()
@@ -64,6 +67,7 @@ class data_base: public read_display//database class inherithing read
     }
 
 };
+int data_base:: employee_id=132456;
 class attendance:public virtual data_base,public read_display
 {  
     protected:
@@ -170,7 +174,7 @@ class salary:public attendance, virtual data_base
             tax=62500;
         else 
             tax=122400;
-        // salary=gross_sal-(pf+esi+tax);
+        salary=gross_sal-(pf+esi+tax);
         // atd=compute(m,y);
         // if(atd<=100 && atd>=95)
         //     newsalary=salary;
@@ -194,8 +198,87 @@ class salary:public attendance, virtual data_base
     }
 };
 
-class menu
+class menu:public salary
 {
      public:
-           
+          void add_new_employee()
+          {
+            data_base::read();
+            read_emp_details();
+            find_net_salary();
+
+          } 
+          void display_employee_details()
+          {
+            data_base::display();
+
+          }
+          void display_attendance(){
+            int month,year;
+            cout<<"\n enter the month and year : ";
+            cin>>month>>year;
+            attendance::display(month,year);
+            cout<<"\n percentage : "<<compute(month,year);
+
+          }
 };
+int main()
+{
+   menu employees[100];
+   int key=34567,choice,i=1,j,id;
+   while(choice!=key)
+   {
+    label1:
+    cout<<"================================================================================================================================================\n";
+    cout<<"---------------------------------------------------employee managment system--------------------------------------------------------------------"<<endl;
+    cout<<"================================================================================================================================================="<<endl;
+
+    cout<<"\n1.add new employee"<<endl;
+    cout<<"2.veiw employee details"<<endl;
+    cout<<"3.mark your attendance"<<endl;
+    cout<<"4.know your detailed salary"<<endl;
+    cout<<"5.know your attendance"<<endl;
+    while(choice<1 || choice>5)
+    {
+    cout<<"\nenter your choice : ";
+    cin>>choice;
+    }
+    switch(choice)
+    {
+        case 1:
+            employees[i].add_new_employee();
+            i+=1;
+            break;
+        case 2:
+             cout<<"\nenter employee id : ";
+             cin>>id;
+             for(j=0;j<i:j++)
+             {
+                if(employees[j].employee_id==id)
+                {
+                    employees[j].display_employee_details();
+                    goto label1
+                }
+             }
+             cout<<"\ninvalid employee id"
+             break;
+        case 3:
+             cout<<"\nenter employee id : ";
+             cin>>id;
+             for(j=0;j<i:j++)
+             {
+                if(employees[j].employee_id==id)
+                {
+                    employees[j].mark_attendance();
+                    goto label1
+                }
+             }
+
+
+             
+    }
+
+
+   }
+
+}
