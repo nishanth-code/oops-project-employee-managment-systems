@@ -108,7 +108,7 @@ class attendance:public virtual data_base
                     d++;
                     for(int j=1;j<7 && d<=days(m,y);j++)
                     {
-                            if(attendance_matrix[y][m][d]==0)
+                            if(attendance_matrix[y-1900][m][d]==0)
                             att='p';
                             cout<<att<<"\t";
                             d++;
@@ -122,7 +122,7 @@ class attendance:public virtual data_base
                time_t now= time(0);
                tm *cur = localtime(&now);
                char* log = ctime(&now);
-               year=1900+cur->tm_year;
+               year=cur->tm_year;
                month=1+cur->tm_mon;
                day=cur->tm_mday;
                day_of_week=cur->tm_wday;
