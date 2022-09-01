@@ -130,10 +130,10 @@ class attendance:public virtual data_base
                day_of_week=cur->tm_wday;
                if(day_of_week == 0)
                {
-                attendance_matrix[year][month][day]= 0;
+                attendance_matrix[year-1900][month][day]= 0;
                 return ;
                }
-               attendance_matrix[year][month][day]=1;
+               attendance_matrix[year-1900][month][day]=1;
                outfile.open("check_in.txt");
                outfile<<employee_id<<"   "<<name<<" checked in at :"<<log<<endl;
                outfile.close();
