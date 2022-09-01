@@ -206,12 +206,12 @@ class salary:public attendance, virtual data_base
 
     void display_sal()
     {
-        cout<<"The Basic saalry is : "<<basic;
-        cout<<"PF is : "<<pf;
-        cout<<"Home Rent Allowance is : "<<hra;
-        cout<<"Gross Salary : "<<gross_sal;
-        cout<<"Tax on your salary : "<<tax;
-        cout<<"Take home salary : "<<newsalary;
+        cout<<"\nThe Basic saalry is : "<<basic;
+        cout<<"\nPF is : "<<pf;
+        cout<<"\nHome Rent Allowance is : "<<hra;
+        cout<<"\nGross Salary : "<<gross_sal;
+        cout<<"\nTax on your salary : "<<tax;
+        cout<<"\nTake home salary : "<<newsalary;
     }
 };
 
