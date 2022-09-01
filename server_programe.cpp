@@ -37,6 +37,7 @@ class data_base: public read_display//database class inherithing read
          char qualification[10];
          float salary;
          float attendance;
+         int employee_code;
          
     public:
          static int employee_id;
@@ -53,6 +54,7 @@ class data_base: public read_display//database class inherithing read
        cin>>qualification;
        cout<<"\nenter the posting of the employee : ";
        cin>>posting;
+       employee_code=employee_id;
        employee_id+=1;
        cout<<"\nyour employee id is : "<<employee_id;
 
@@ -270,7 +272,7 @@ int main()
              cin>>id;
              for(j=0;j<i;j++)
              {
-                if(employees[j].employee_id==id)
+                if(employees[j].employee_code==id)
                 {
                     employees[j].display_employee_details();
                     break;
@@ -283,7 +285,7 @@ int main()
              cin>>id;
              for(j=0;j<i;j++)
              {
-                if(employees[j].employee_id==id)
+                if(employees[j].employee_code==id)
                 {
                     employees[j].mark_attendance();
                     break;
@@ -296,7 +298,7 @@ int main()
              cin>>id;
              for(j=0;j<i;j++)
              {
-                if(employees[j].employee_id==id)
+                if(employees[j].employee_code==id)
                 {
                     employees[j].display_sal();
                     break;
@@ -309,7 +311,7 @@ int main()
              cin>>id;
              for(j=0;j<i;j++)
              {
-                if(employees[j].employee_id==id)
+                if(employees[j].employee_code==id)
                 {
                     employees[j].display_attendance();
                     break;
@@ -322,7 +324,7 @@ int main()
              cin>>id;
              for(j=0;j<i;j++)
              {
-                if(employees[j].employee_id==id)
+                if(employees[j].employee_code==id)
                 {
                     employees[j].checkout();
                     break;
