@@ -133,7 +133,7 @@ class attendance:public virtual data_base
                }
                attendance_matrix[year][month][day]=1;
                outfile.open("check_in.txt");
-               outfile<<employee_id<<" checked in at :"<<log<<endl;
+               outfile<<employee_id<<"   "<<name<<" checked in at :"<<log<<endl;
                outfile.close();
                cout<<"\nentered log details sucessfully";
 
@@ -146,7 +146,7 @@ class attendance:public virtual data_base
                time_t now= time(0);
                char* log = ctime(&now);
                outfile.open("check_out.txt");
-               outfile<<employee_id<<" checked out at :"<<log<<endl;
+               outfile<<employee_id<<"   "<<name<<" checked out at :"<<log<<endl;
                outfile.close();
                cout<<"\nentered log details sucessfully";
                
