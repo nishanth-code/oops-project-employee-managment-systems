@@ -212,7 +212,7 @@ class salary:public attendance, virtual data_base
         cout<<"\nHome Rent Allowance is : "<<hra;
         cout<<"\nGross Salary : "<<gross_sal;
         cout<<"\nTax on your salary : "<<tax;
-        cout<<"\nTake home salary : "<<newsalary;
+        cout<<"\nTake home salary : "<<salary;
     }
 };
 
