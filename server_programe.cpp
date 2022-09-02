@@ -172,12 +172,11 @@ class salary:public attendance, virtual data_base
     }
     void find_net_salary()
     {
-        da=(0.5*basic);
-        hra=(0.4*basic)+da;
-        lta=(0.1*basic);
+        da=5000;
+        hra=5000+da;
         pf=(0.12*basic)+da;
         esi=(0.0075*basic);
-        gross_sal=basic+da+hra+lta;
+        gross_sal=basic+da+hra;
         if(gross_sal<=250000)
             tax=0;
         else if(gross_sal>250000 && gross_sal<=500000)
