@@ -101,7 +101,7 @@ class attendance:public virtual data_base
             
             void display(int m,int y)
             {  
-                char att='a';
+                char att;
                 int d=1;
                 cout<<"\t"<<m<<"-"<<y<<endl;
                 cout<<"Sun\tMon\tTue\tWed\tThur\tFri\tSat\n";
@@ -110,8 +110,9 @@ class attendance:public virtual data_base
                     d++;
                     for(int j=1;j<7 && d<=days(m,y);j++)
                     {
+                             att='p';
                             if(attendance_matrix[y-1900][m][d]==0)
-                            att='p';
+                            att='a';
                             cout<<att<<"\t";
                             d++;
                     }
