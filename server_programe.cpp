@@ -267,7 +267,7 @@ int main()
         case 1:
             employees[i].add_new_employee();
             i+=1;
-            break;
+            goto label1;
         case 2:
              cout<<"\nenter employee id : ";
              cin>>id;
@@ -276,7 +276,7 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].display_employee_details();
-                    goto label1
+                    goto label1;
                 }
              }
              cout<<"\ninvalid employee id";
@@ -289,7 +289,7 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].mark_attendance();
-                    goto label1
+                    goto label1;
                 }
              }
              cout<<"\ninvalid employee id";
@@ -302,7 +302,7 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].display_sal();
-                    goto label1
+                    goto label1;
                 }
              }
              cout<<"\ninvalid employee id";
@@ -315,7 +315,7 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].display_attendance();
-                    goto label1
+                    goto label1;
                 }
              }
              cout<<"\ninvalid employee id";
@@ -328,14 +328,14 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].checkout();
-                    goto label1
+                    goto label1;
                 }
              }
              cout<<"\ninvalid employee id";
              break;
 
         default:
-             cout<<"\ninvalid choice :-( \n"
+             cout<<"\ninvalid choice :-( \n";
               break;
          
 
