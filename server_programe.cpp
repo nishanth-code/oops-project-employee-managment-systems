@@ -92,7 +92,7 @@ class attendance:public virtual data_base
                 int total_attendance=0;
                 for(int i=1;i<=days(m,y);i++)
                 {   
-                    total_attendance+=attendance_matrix[y][m][i];
+                    total_attendance+=attendance_matrix[y-1900][m][i];
                 }
                     percentage=(total_attendance/(days(m,y)-4))*100;
                 
