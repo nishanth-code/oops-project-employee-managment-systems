@@ -37,10 +37,10 @@ class data_base: public read_display//database class inherithing read
          char qualification[10];
          float salary;
          float attendance;
-         int employee_code;
          
     public:
-         static int employee_id;
+        int employee_code;
+        static int employee_id;
 
     void read()
     {
@@ -56,7 +56,7 @@ class data_base: public read_display//database class inherithing read
        cin>>posting;
        employee_code=employee_id;
        employee_id+=1;
-       cout<<"\nyour employee id is : "<<employee_id;
+       cout<<"\nyour employee id is : "<<employee_code;
 
     }
     void display()
@@ -166,7 +166,7 @@ class salary:public attendance, virtual data_base
     {
         // cout<<"Employee id:\n" ;
         // cin>>emp_id;
-        cout<<"Enter basic salary:\n" ;
+        cout<<"\nEnter basic salary :" ;
         cin>>basic;
     }
     void find_net_salary()
@@ -243,6 +243,7 @@ int main()
 {
    menu employees[100];
    int key=34567,choice,i=1,j,id;
+   label1:
    while(choice!=key)
    {
     
@@ -256,11 +257,10 @@ int main()
     cout<<"4.know your detailed salary"<<endl;
     cout<<"5.know your attendance"<<endl;
     cout<<"6.checkout"<<endl;
-    while(choice<1 || choice>5)
-    {
+   
     cout<<"\nenter your choice : ";
     cin>>choice;
-    }
+    
     switch(choice)
     {
         case 1:
@@ -275,7 +275,7 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].display_employee_details();
-                    break;
+                    goto label1
                 }
              }
              cout<<"\ninvalid employee id";
@@ -288,7 +288,7 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].mark_attendance();
-                    break;
+                    goto label1
                 }
              }
              cout<<"\ninvalid employee id";
@@ -301,7 +301,7 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].display_sal();
-                    break;
+                    goto label1
                 }
              }
              cout<<"\ninvalid employee id";
@@ -314,7 +314,7 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].display_attendance();
-                    break;
+                    goto label1
                 }
              }
              cout<<"\ninvalid employee id";
@@ -327,13 +327,14 @@ int main()
                 if(employees[j].employee_code==id)
                 {
                     employees[j].checkout();
-                    break;
+                    goto label1
                 }
              }
              cout<<"\ninvalid employee id";
              break;
 
         default:
+             cout<<"\ninvalid choice :-( \n"
               break;
          
 
