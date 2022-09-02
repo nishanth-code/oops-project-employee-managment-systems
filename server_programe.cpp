@@ -241,7 +241,7 @@ class menu:public salary
 };
 int main()
 {
-   menu employees[100];
+   menu employees[15];
    int key=34567,choice,i=1,j,id;
    label1:
    while(choice!=key)
