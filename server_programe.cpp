@@ -201,7 +201,7 @@ class salary:public attendance, virtual data_base
         // cin>>emp_id;
         cout<<"\nEnter basic salary :" ;
         cin>>basic;
-        cout<<"If you live in rented house type YES else NO\n"
+        cout<<"If you live in rented house type YES else NO\n";
         cin>>choice;
         if(chopice=="yes" || choice=="YES")
         {
