@@ -84,6 +84,7 @@ class attendance:public virtual data_base
     protected:
         int attendance_matrix[150][13][32];
         ofstream outfile;
+        time_t log_in,log_out;
     public: int days(int m,int y)
             {
                 if(m==2 && y%4==0)
@@ -130,9 +131,9 @@ class attendance:public virtual data_base
             void mark_attendance()
             {
                int year,month,day,day_of_week;
-               time_t now= time(0);
-               tm *cur = localtime(&now);
-               char* log = ctime(&now);
+                log_in= time(0);
+               tm *cur = localtime(&log_in);
+               char* log = ctime(&log_in);
                year=cur->tm_year;
                month=1+cur->tm_mon;
                day=cur->tm_mday;
@@ -142,7 +143,7 @@ class attendance:public virtual data_base
                 attendance_matrix[year-1900][month][day]= 0;
                 return ;
                }
-               attendance_matrix[year][month][day]=1;
+            //    attendance_matrix[year][month][day]=1;
                outfile.open("check_in.txt");
                outfile<<employee_id<<"   "<<name<<" checked in at :"<<log<<endl;
                outfile.close();
@@ -154,14 +155,15 @@ class attendance:public virtual data_base
             }
             void checkout()
             {
-               time_t now= time(0);
-               char* log = ctime(&now);
+               log_out= time(0);
+               char* log = ctime(&log_out);
                outfile.open("check_out.txt");
                outfile<<employee_id<<"   "<<name<<" checked out at :"<<log<<endl;
                outfile.close();
                cout<<"\nentered log details sucessfully";
                
              }
+             fri
 };
 
 
@@ -272,6 +274,7 @@ int main()
     switch(choice)
     {
         case 1:
+            system("CLS");
             employees[i].add_new_employee();
             i+=1;
             goto label1;
@@ -295,6 +298,7 @@ int main()
              {
                 if(employees[j].employee_code==id)
                 {
+                    system("CLS");
                     employees[j].mark_attendance();
                     goto label1;
                 }
@@ -308,6 +312,7 @@ int main()
              {
                 if(employees[j].employee_code==id)
                 {
+                    system("CLS");
                     employees[j].display_sal();
                     goto label1;
                 }
@@ -321,6 +326,7 @@ int main()
              {
                 if(employees[j].employee_code==id)
                 {
+                    system("CLS");
                     employees[j].display_attendance();
                     goto label1;
                 }
@@ -334,6 +340,7 @@ int main()
              {
                 if(employees[j].employee_code==id)
                 {
+                    system("CLS");
                     employees[j].checkout();
                     goto label1;
                 }
