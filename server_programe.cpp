@@ -194,7 +194,8 @@ class salary:public attendance, virtual data_base
 {
     
     
-    float basic,da,hra,lta,pf,esi,choice,rent,gross_sal,tax,salary,atd,newsalary;
+    float basic,da,hra,lta,pf,esi,rent,gross_sal,tax,salary,atd,newsalary;
+    char choice;
     public:void read_emp_details()
     {
         // cout<<"Employee id:\n" ;
