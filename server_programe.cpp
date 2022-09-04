@@ -204,7 +204,7 @@ class salary:public attendance, virtual data_base
         cin>>basic;
         cout<<"If you live in rented house type YES else NO\n";
         cin>>choice;
-        if(choice=="yes" || choice=="YES")
+        if(choice=="yes"||choice=="YES")
         {
             hra=(hra+(0.5*basic))/12;
         }
