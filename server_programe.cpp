@@ -194,18 +194,27 @@ class salary:public attendance, virtual data_base
 {
     
     
-    float basic,da,hra,lta,pf,esi,gross_sal,tax,salary,atd,newsalary;
+    float basic,da,hra,lta,pf,esi,choice,rent,gross_sal,tax,salary,atd,newsalary;
     public:void read_emp_details()
     {
         // cout<<"Employee id:\n" ;
         // cin>>emp_id;
         cout<<"\nEnter basic salary :" ;
         cin>>basic;
+        cout<<"If you live in rented house type YES else NO\n"
+        cin>>choice;
+        if(chopice=='yes' || choice=='YES')
+        {
+            hra=(hra+(0.5*basic))/12;
+        }
+        else 
+        {
+            exit(0);
+        }
     }
     void find_net_salary()
     {
-        da=5000;
-        hra=5000+da;
+        da=(0.12*basic);        
         pf=(0.12*basic)+da;
         esi=(0.0075*basic);
         gross_sal=basic+da+hra;
