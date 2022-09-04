@@ -306,7 +306,7 @@ int main()
     switch(choice)
     {
         case 1:
-            system("CLS");
+            system("clear");
             employees[i].add_new_employee();
             i+=1;
             goto label1;
@@ -317,6 +317,7 @@ int main()
              {
                 if(employees[j].employee_code==id)
                 {
+                   system("clear");
                     employees[j].display_employee_details();
                     goto label1;
                 }
@@ -330,7 +331,7 @@ int main()
              {
                 if(employees[j].employee_code==id)
                 {
-                    system("CLS");
+                    system("clear");
                     employees[j].mark_attendance();
                     goto label1;
                 }
@@ -344,7 +345,7 @@ int main()
              {
                 if(employees[j].employee_code==id)
                 {
-                    system("CLS");
+                    system("clear");
                     employees[j].display_sal();
                     goto label1;
                 }
@@ -358,7 +359,7 @@ int main()
              {
                 if(employees[j].employee_code==id)
                 {
-                    system("CLS");
+                    system("clear");
                     employees[j].display_attendance();
                     goto label1;
                 }
@@ -372,7 +373,7 @@ int main()
              {
                 if(employees[j].employee_code==id)
                 {
-                    system("CLS");
+                    system("clear");
                     employees[j].checkout();
                     goto label1;
                 }
