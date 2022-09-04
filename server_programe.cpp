@@ -12,6 +12,7 @@ struct date_
     int day;
     int month;
     int year;
+
 };
 
 //your code begins here add comment lines befor each section and explain any complex logic if u r using
@@ -37,6 +38,7 @@ class data_base: public read_display//database class inherithing read
          char qualification[10];
          float salary;
          float attendance;
+         int age;
          
     public:
         int employee_code;
@@ -46,10 +48,16 @@ class data_base: public read_display//database class inherithing read
     {
        cout<<"\nenter the name of the employee : ";
        cin>>name;
-       cout<<"\nenter the date of birth of the employee in the formate(dd/mm/yyyy) : ";
+       cout<<"\nenter the date of birth of the employee in the format (dd/mm/yyyy) : ";
        cin>>d_o_b.day>>d_o_b.month>>d_o_b.year;
-       cout<<"\nenter the date of joining of the employee in the formate(dd/mm/yyyy) : ";
+       cout<<"\nenter the date of joining of the employee in the format (dd/mm/yyyy) : ";
        cin>>d_o_j.day>>d_o_j.month>>d_o_j.year;
+       age=d_o_j.year-d_o_b.year;
+       if(age<17)
+       {
+          cout<<"\n employee age not valid to work";
+          return;
+       }
        cout<<"\nenter the qualification of the employee : ";
        cin>>qualification;
        cout<<"\nenter the posting of the employee : ";
