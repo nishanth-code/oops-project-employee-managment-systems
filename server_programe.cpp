@@ -32,7 +32,7 @@ class data_base: public read_display//database class inherithing read
 {
       protected:
          char name[20];
-         char posting[5];
+         char posting[10];
          struct date_ d_o_b;
          struct date_ d_o_j;
          char qualification[10];
@@ -172,6 +172,9 @@ class attendance:public virtual data_base
                if(hours>=7.5)
                {
                  attendance_matrix[year][month][day]=1;
+               }
+               else{
+                cout<<"insufficient working hour fr the day attendance not valid";
                }
 
                cout<<"\nentered log details sucessfully";
