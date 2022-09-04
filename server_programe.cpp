@@ -6,6 +6,8 @@
 #include<math.h>
 #include<ctime>
 #include<fstream>
+#include<string.h>
+#include<cctype>
 using namespace std;
 struct date_
 {
@@ -46,8 +48,10 @@ class data_base: public read_display//database class inherithing read
 
     void read()
     {
+        label2:
        cout<<"\nenter the name of the employee : ";
        cin>>name;
+      
        cout<<"\nenter the date of birth of the employee in the format (dd/mm/yyyy) : ";
        cin>>d_o_b.day>>d_o_b.month>>d_o_b.year;
        cout<<"\nenter the date of joining of the employee in the format (dd/mm/yyyy) : ";
