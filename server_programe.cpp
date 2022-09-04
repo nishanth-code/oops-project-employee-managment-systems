@@ -130,14 +130,14 @@ class attendance:public virtual data_base
             }
             void mark_attendance()
             {
-               int year,month,day,day_of_week;
+              int day_of_week,month,year,day;
                 log_in= time(0);
-               tm *cur = localtime(&log_in);
+               tm *in = localtime(&log_in);
                char* log = ctime(&log_in);
-               year=cur->tm_year;
-               month=1+cur->tm_mon;
-               day=cur->tm_mday;
-               day_of_week=cur->tm_wday;
+               year=in->tm_year;
+               month=1+in->tm_mon;
+               day=in->tm_mday;
+              day_of_week=in->tm_wday;
                if(day_of_week == 0)
                {
                 attendance_matrix[year-1900][month][day]= 0;
@@ -155,15 +155,30 @@ class attendance:public virtual data_base
             }
             void checkout()
             {
+                int month,year,day;
                log_out= time(0);
                char* log = ctime(&log_out);
+                tm *out = localtime(&log_in);
                outfile.open("check_out.txt");
                outfile<<employee_id<<"   "<<name<<" checked out at :"<<log<<endl;
                outfile.close();
+               year=out->tm_year;
+               month=1+out->tm_mon;
+               day=out->tm_mday;
+               
+            //    tm*in=localtime(&log_in);
+            //    tm*out=localtime(&log_out);
+               double hours= difftime(log_out,log_in);
+               if(hours>=7.5)
+               {
+                 attendance_matrix[year][month][day]=1;
+               }
+
                cout<<"\nentered log details sucessfully";
                
              }
-             fri
+            
+             
 };
 
 
